@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 
 function App() {
+  const nextId = useRef(1);
   const [inputValue, setInputValue] = useState({
     id: '',
     content: '',
   });
   const [inputValues, setInputValues] = useState([]);
+
   const onChange = (e) => {
-    setInputValue({ ...inputValue, content: e.target.value, id: Date.now() });
+    setInputValue({ content: e.target.value, id: nextId.current });
+    nextId.current += 1;
   };
   const onSubmit = (e) => {
     e.preventDefault();

@@ -27,4 +27,5 @@
   font-size: 25px;
   display: inline-block;
   margin-right: 15px;
+  overflow: hidden;
 }
